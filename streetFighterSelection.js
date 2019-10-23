@@ -1,44 +1,48 @@
 const streetFighterSelection = (fighters, position, moves) => {
   let result = [];
-  currentPosition = position;
+  let currentPosition = position;
+  let row = currentPosition[0];
+  let column = currentPosition[1];
+
   const pushFighterToResult = () => {
-    result.push(fighters[currentPosition[0]][currentPosition[1]]);
+    result.push(fighters[row][column]);
   };
+
   moves.forEach(move => {
     if (move === "right") {
-      if (currentPosition[1] === 5) {
-        currentPosition[1] = 0;
+      if (column === 5) {
+        column = 0;
         pushFighterToResult();
       } else {
-        currentPosition[1] += 1;
+        column += 1;
         pushFighterToResult();
       }
     }
 
     if (move === "down") {
-      if (currentPosition[0] === 1) {
+      if (row === 1) {
         pushFighterToResult();
       } else {
-        currentPosition[0] += 1;
+        row += 1;
         pushFighterToResult();
       }
     }
 
     if (move === "up") {
-      if (currentPosition[0] === 0) {
+      if (row === 0) {
         pushFighterToResult();
       } else {
-        currentPosition[0] -= 1;
+        row -= 1;
         pushFighterToResult();
       }
     }
 
     if (move === "left") {
-      if (currentPosition[1] === 0) {
-        currentPosition[1] = 5;
+      if (column === 0) {
+        column = 5;
         pushFighterToResult();
       } else {
-        currentPosition[1] -= 1;
+        column -= 1;
         pushFighterToResult();
       }
     }
