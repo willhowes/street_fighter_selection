@@ -92,4 +92,27 @@ describe("#streetFighterSelection", () => {
       ])
     ).toEqual(["E.Honda", "Blanka", "Guile", "Balrog", "Vega", "Ryu"]);
   });
+
+  it("handles multiple moves in different directions", () => {
+    const moves = ["up", "left", "right", "left", "left"];
+    expect(streetFighterSelection(fighters, position, moves)).toEqual([
+      "Ryu",
+      "Vega",
+      "Ryu",
+      "Vega",
+      "Balrog"
+    ]);
+  });
+  it("Handles multiple moves and going off far right of screen on second row", () => {
+    const moves2 = ["right", "down", "left", "left", "left", "left", "right"];
+    expect(streetFighterSelection(fighters, position, moves2)).toEqual([
+      "E.Honda",
+      "Chun Li",
+      "Ken",
+      "M.Bison",
+      "Sagat",
+      "Dhalsim",
+      "Sagat"
+    ]);
+  });
 });

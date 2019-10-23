@@ -70,4 +70,4 @@ initial_position = (0,0)
 moves = ['right', 'down', 'left', 'left', 'left', 'left', 'right']
 Result:
 
-['E.Honda', 'Chun Li', 'Ken', 'M.Bison'
+['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']

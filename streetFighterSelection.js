@@ -1,9 +1,6 @@
 const streetFighterSelection = (fighters, position, moves) => {
   let result = [];
-  let currentPosition = position;
-  if (moves === undefined || moves.length == 0) {
-    return moves;
-  }
+
   moves.forEach(move => {
     if (move === "right") {
       if (position[1] === 5) {
