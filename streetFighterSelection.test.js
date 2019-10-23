@@ -5,26 +5,34 @@ const fighters = [
   ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
 ];
 
+let position = [0, 0];
+
 describe("#streetFighterSelection", () => {
-  const position = [0, 0];
+  beforeEach(() => {
+    position = [0, 0];
+  });
+
+  afterEach(() => {
+    position = [0, 0];
+  });
 
   it("Returns blank array when no moves given", () => {
     expect(streetFighterSelection(fighters, position, [])).toEqual([]);
   });
 
   it("Handles one move to the right correctly", () => {
-    const position = [0, 0];
-
     expect(streetFighterSelection(fighters, position, ["right"])).toEqual([
       "E.Honda"
     ]);
   });
 
   it("Handles two moves to the right correctly", () => {
-    const position = [0, 0];
-
     expect(
       streetFighterSelection(fighters, position, ["right", "right"])
     ).toEqual(["E.Honda", "Blanka"]);
+  });
+
+  it("Handles one move down correctly", () => {
+    expect(streetFighterSelection(fighters, position, ["down"])).toEqual("Ken");
   });
 });
