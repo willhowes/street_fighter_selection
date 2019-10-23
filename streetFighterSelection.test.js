@@ -54,4 +54,17 @@ describe("#streetFighterSelection", () => {
       "Ryu"
     ]);
   });
+
+  it("Handles one move down and one move up correctly", () => {
+    expect(streetFighterSelection(fighters, position, ["down", "up"])).toEqual([
+      "Ken",
+      "Ryu"
+    ]);
+  });
+
+  it("Handles one move to the left correctly", () => {
+    expect(streetFighterSelection(fighters, position, ["left"])).toEqual([
+      "Vega"
+    ]);
+  });
 });
