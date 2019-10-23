@@ -11,8 +11,12 @@ const streetFighterSelection = (fighters, position, moves) => {
     }
 
     if (move === "down") {
-      position[0] += 1;
-      result.push(fighters[position[0]][position[1]]);
+      if (position[0] === 1) {
+        result.push(fighters[position[0]][position[1]]);
+      } else {
+        position[0] += 1;
+        result.push(fighters[position[0]][position[1]]);
+      }
     }
   });
   return result;
