@@ -11,4 +11,10 @@ describe("#streetFighterSelection", () => {
   it("Returns blank array when no moves given", () => {
     expect(streetFighterSelection(fighters, position, [])).toEqual([]);
   });
+
+  it("Handles one move to the right correctly", () => {
+    expect(streetFighterSelection(fighters, position, ["right"])).toEqual([
+      "E.Honda"
+    ]);
+  });
 });
