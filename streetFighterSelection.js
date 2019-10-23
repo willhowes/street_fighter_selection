@@ -1,42 +1,45 @@
 const streetFighterSelection = (fighters, position, moves) => {
   let result = [];
-
+  currentPosition = position;
+  const pushFighterToResult = () => {
+    result.push(fighters[currentPosition[0]][currentPosition[1]]);
+  };
   moves.forEach(move => {
     if (move === "right") {
-      if (position[1] === 5) {
-        position[1] = 0;
-        result.push(fighters[position[0]][position[1]]);
+      if (currentPosition[1] === 5) {
+        currentPosition[1] = 0;
+        pushFighterToResult();
       } else {
-        position[1] += 1;
-        result.push(fighters[position[0]][position[1]]);
+        currentPosition[1] += 1;
+        pushFighterToResult();
       }
     }
 
     if (move === "down") {
-      if (position[0] === 1) {
-        result.push(fighters[position[0]][position[1]]);
+      if (currentPosition[0] === 1) {
+        pushFighterToResult();
       } else {
-        position[0] += 1;
-        result.push(fighters[position[0]][position[1]]);
+        currentPosition[0] += 1;
+        pushFighterToResult();
       }
     }
 
     if (move === "up") {
-      if (position[0] === 0) {
-        result.push(fighters[position[0]][position[1]]);
+      if (currentPosition[0] === 0) {
+        pushFighterToResult();
       } else {
-        position[0] -= 1;
-        result.push(fighters[position[0]][position[1]]);
+        currentPosition[0] -= 1;
+        pushFighterToResult();
       }
     }
 
     if (move === "left") {
-      if (position[1] === 0) {
-        position[1] = 5;
-        result.push(fighters[position[0]][position[1]]);
+      if (currentPosition[1] === 0) {
+        currentPosition[1] = 5;
+        pushFighterToResult();
       } else {
-        position[1] -= 1;
-        result.push(fighters[position[0]][position[1]]);
+        currentPosition[1] -= 1;
+        pushFighterToResult();
       }
     }
   });
