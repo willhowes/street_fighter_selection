@@ -67,4 +67,29 @@ describe("#streetFighterSelection", () => {
       "Vega"
     ]);
   });
+
+  it("Handles two moves to the left correctly", () => {
+    expect(
+      streetFighterSelection(fighters, position, ["left", "left"])
+    ).toEqual(["Vega", "Balrog"]);
+  });
+
+  it("Handles one move to the right then one to the left correctly", () => {
+    expect(
+      streetFighterSelection(fighters, position, ["right", "left"])
+    ).toEqual(["E.Honda", "Ryu"]);
+  });
+
+  it("handles moves to the right beyond end of row", () => {
+    expect(
+      streetFighterSelection(fighters, position, [
+        "right",
+        "right",
+        "right",
+        "right",
+        "right",
+        "right"
+      ])
+    ).toEqual(["E.Honda", "Blanka", "Guile", "Balrog", "Vega", "Ryu"]);
+  });
 });
