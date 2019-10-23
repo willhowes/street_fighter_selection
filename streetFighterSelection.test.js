@@ -43,4 +43,11 @@ describe("#streetFighterSelection", () => {
       streetFighterSelection(fighters, position, ["down", "down"])
     ).toEqual(["Ken", "Ken"]);
   });
+
+  it("Handles one move up correctly", () => {
+    expect(streetFighterSelection(fighters, position, ["up", "up"])).toEqual([
+      "Ryu",
+      "Ryu"
+    ]);
+  });
 });
